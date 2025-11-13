@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bootop
+  labels:
+    app: bootop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootop
+  template:
+    metadata:
+      labels:
+        app: bootop
+    spec:
+      containers:
+        - name: bootop
+          image: docker.io/phengbunath/bootop:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
